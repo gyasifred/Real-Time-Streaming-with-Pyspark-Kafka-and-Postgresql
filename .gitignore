@@ -3,3 +3,4 @@ lib/
 pyvenv.cfg
 .env
 __pycache__
+streaming_data.pickle
