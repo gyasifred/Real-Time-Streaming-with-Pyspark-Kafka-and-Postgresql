@@ -1,1 +1,1 @@
-# Real-Time-Data-Streaming-with-Pyspark-Kafka-and-Postgres
+# Real-Time-Data-Streaming-with-Pyspark-Kafka-and-PostgreSQL

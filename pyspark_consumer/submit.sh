@@ -1,4 +1,4 @@
-# spark-submit --driver-class-path=postgresql-42.4.0.jar --driver-memory 4G --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0 --py-files /consumer.py
+# spark-submit --driver-class-path=postgresql-42.4.0.jar --driver-memory 5G --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0 --py-files /consumer.py
 echo "This is my spark dockerfile"
 
 

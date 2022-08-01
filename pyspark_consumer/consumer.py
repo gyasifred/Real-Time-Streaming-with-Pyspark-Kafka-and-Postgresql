@@ -17,7 +17,7 @@ models.Base.metadata.create_all(bind=engine)
 if __name__ == "__main__":
     # Instantiate SparkSession
     spark = SparkSession.builder\
-        .master("local[1]")\
+        .master("local[2]")\
         .config("spark.jars", "postgresql-42.4.0.jar") \
         .appName("StreamingPipeline").getOrCreate()
 

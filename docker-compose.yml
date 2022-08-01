@@ -61,6 +61,18 @@ services:
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
       - "constraint:node==localhost"
+  spark-worker-2:
+    image: bde2020/spark-submit:3.3.0-hadoop3.3
+    container_name: spark-worker-2
+    depends_on:
+      - spark-master
+      - kafka
+      - producer
+    ports:
+      - "8083:8082"
+    environment:
+      - "SPARK_MASTER=spark://spark-master:7077"
+      - "constraint:node==localhost"
   spark-consumer:
     image: spark-consumer
     build: pyspark_consumer/.
@@ -73,18 +85,19 @@ services:
     ports:
       - "8084:80"
     environment:
-      - DATABASE_HOSTNAME=postgres
-      - DATABASE_PORT=5432
-      - DATABASE_PASSWORD="postgres"
-      - DATABASE_NAME=postgres
-      - DATABASE_USERNAME=postgres
+      - DATABASE_HOSTNAME=${DATABASE_HOSTNAME}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_USERNAME=${DATABASE_USERNAME}
 
   postgres:
     image: postgres
     ports:
       - 5431:5432
     environment:
-      - POSTGRES_PASSWORD="postgres"
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_NAME}
     volumes:
       - postgres-db:/var/lib/postgresql/data
 

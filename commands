@@ -4,3 +4,9 @@ spark-submit --driver-class-path=/home/kgyasi/Desktop/data_eng/postgresql-42.4.0
 
 sudo docker exec --interactive --tty data_eng_kafka_1 kafka-console-consumer.sh --topic temperature_readings --from-beginning --bootstrap-server kafka:9092
 sudo docker exec -ti postgres psql -U postgres
+
+printenv
+
+set -o allexport; source /home/kgyasi/Documents/data_eng/.env_variables; set +o allexport
+
+docker compose --env-file .env_variables up 

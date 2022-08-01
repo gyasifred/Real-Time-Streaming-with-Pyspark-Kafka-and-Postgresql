@@ -4,3 +4,6 @@ pyvenv.cfg
 .env
 __pycache__
 streaming_data.pickle
+.env_variables
+kube-deployment.yml
+commands
