@@ -1,12 +1,12 @@
 bin/kafka-server-start.sh config/server.properties
-spark-submit --driver-class-path=/home/kgyasi/Desktop/data_eng/postgresql-42.4.0.jar --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.3  /home/kgyasi/Desktop/data_eng/consumer.py
+spark-submit --driver-class-path=/home/kgyasi/Desktop/data_eng/postgresql-42.4.0.jar --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0  /home/kgyasi/Desktop/data_eng/consumer.py
 spark-submit --driver-class-path=/home/kgyasi/Desktop/data_eng/postgresql-42.4.0.jar --jars /home/kgyasi/Desktop/data_eng/postgresql-42.4.0.jar retrieve_jdbc_data.py
 
 sudo docker exec --interactive --tty data_eng_kafka_1 kafka-console-consumer.sh --topic temperature_readings --from-beginning --bootstrap-server kafka:9092
-sudo docker exec -ti postgres psql -U postgres
+sudo docker exec -ti  data_eng_postgres_1 psql -U postgres
 
 printenv
 
 set -o allexport; source /home/kgyasi/Documents/data_eng/.env_variables; set +o allexport
 
-docker compose --env-file .env_variables up 
+sudo docker-compose --env-file .env_variables up 
