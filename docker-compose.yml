@@ -23,12 +23,13 @@ services:
       - "localhost: 127.0.0.1"
 
   producer:
-    image: producer
+    #image: producer
     build: producer/.
     ports:
       - "8282:80"
     depends_on:
       - kafka
+      - spark-consumer
     entrypoint:
       - bash
       - -c
@@ -39,11 +40,10 @@ services:
         python produce.py kafka:9092
 
   spark-consumer:
-    image: spark-consumer:latest
+    #image: spark-consumer:latest
     build: pyspark_consumer/.
     depends_on:
       - kafka
-      - producer
       - postgres
     ports:
       - "8084:80"
