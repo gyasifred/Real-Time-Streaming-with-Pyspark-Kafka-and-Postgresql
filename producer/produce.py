@@ -6,7 +6,11 @@ import pickle
 
 if __name__ == "__main__":
 
-    producer = KafkaProducer(bootstrap_servers="kafka:9092")
+    try:
+        producer = KafkaProducer(bootstrap_servers="kafka:9092")
+    except:
+        print(f'Kafka broaker not available')
+
 
     with open("streaming_data.pickle", "rb") as handle:
         stream_data = pickle.load(handle)
