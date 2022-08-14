@@ -2,6 +2,16 @@
 ![pipeline](pipeline.png)
 
 ## Deployment Instructions for a Standalone Deployment on a Local Machine in a Docker Environment
+
+#### Before you deploy, please ensure you have a stable internet connection to build and download maven packages for the deployment.
+#### Also, if you have a local instance of Zookeeper running on port 2181, please consider shutting it down first.
+For Linux users, you can do that by running the command systemctl stop <nameofzookeeperinstant>. example
+```
+systemctl stop zookeeper
+```
+For Windows users, you need to run the zookeeper-server-stop.bat script.
+
+#### You may now deploy using the following commands:
 ```
 git clone https://github.com/gyasifred/Real-Time-Streaming-with-Pyspark-Kafka-and-Postgresql.git  
 cd Real-Time-Streaming-with-Pyspark-Kafka-and-Postgresql/producer
@@ -67,5 +77,3 @@ id  | room_location |      window_start      |       window_end       |  avg_tem
  215 | In            | 2018-10-22 03:30:00+00 | 2018-10-22 04:00:00+00 |              44
  294 | In            | 2018-12-03 03:00:00+00 | 2018-12-03 03:30:00+00 |              23
 ```
-
-### Please you must have stable internet connection to build and download maven packages for  the deployment.
