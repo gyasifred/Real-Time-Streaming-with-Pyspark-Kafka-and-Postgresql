@@ -11,7 +11,6 @@ if __name__ == "__main__":
     except:
         print(f'Kafka broaker not available')
 
-
     with open("streaming_data.pickle", "rb") as handle:
         stream_data = pickle.load(handle)
 

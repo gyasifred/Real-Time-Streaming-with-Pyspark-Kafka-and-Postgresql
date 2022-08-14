@@ -71,7 +71,7 @@ if __name__ == "__main__":
         .groupBy(window(df_time_stamp.timestamp, "30 minutes"), df_time_stamp.room_location)
         .avg("temperature")
     )
-
+    # dataframe to save to PostgreSQL
     df_final = df_window.select(
         "room_location",
         col("window.start").alias("window_start"),
