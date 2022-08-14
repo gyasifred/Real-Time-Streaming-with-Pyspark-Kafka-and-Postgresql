@@ -1,5 +1,7 @@
 FROM python:3.9.7
 
+LABEL maintainer="Gyasi Frederick gyasifred@gmail.com"
+
 WORKDIR /usr/src/app
 
 COPY requirements.txt ./
